@@ -13,6 +13,9 @@ module.exports = {
     typingMessage: function (message, successCallback, errorCallback) {
         cordova.exec(successCallback, errorCallback, "WebimSDK", "typingMessage", [message]);
     },
+    setChatRead: function (successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "WebimSDK", "setChatRead", []);
+    },
     sendMessage: function (message, successCallback, errorCallback) {
         cordova.exec(successCallback, errorCallback, "WebimSDK", "sendMessage", [message]);
     },
