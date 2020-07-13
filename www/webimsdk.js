@@ -10,7 +10,7 @@ module.exports = {
     getMessagesHistory: function (limit, offset, successCallback, errorCallback) {
         cordova.exec(successCallback, errorCallback, "WebimSDK", "getMessagesHistory", [limit, offset]);
     },
-    getCurrentOperator: function (limit, offset, successCallback, errorCallback) {
+    getCurrentOperator: function (successCallback, errorCallback) {
         cordova.exec(successCallback, errorCallback, "WebimSDK", "getCurrentOperator", []);
     },
     typingMessage: function (message, successCallback, errorCallback) {
