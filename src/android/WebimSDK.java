@@ -88,7 +88,7 @@ public class WebimSDK extends CordovaPlugin {
 
             case "getCurrentOperator":
                 getCurrentOperator(callbackContext);
-                return true
+                return true;
 
             case "typingMessage":
                 typingMessage(data.getString(0), callbackContext);
