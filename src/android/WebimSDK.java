@@ -85,6 +85,9 @@ public class WebimSDK extends CordovaPlugin {
                 int offset = Integer.parseInt(data.getString(1));
                 getMessagesHistory(limit, offset, callbackContext);
                 return true;
+            case "getCurrentOperator":
+                return true
+
 
             case "typingMessage":
                 typingMessage(data.getString(0), callbackContext);
@@ -235,6 +238,15 @@ public class WebimSDK extends CordovaPlugin {
             return;
         }
         listController.requestMore(limit, offset, callbackContext);
+    }
+
+    private void getCurrentOperator(final CallbackContext callbackContext) {
+        if (session == null) {
+            sendCallbackError(callbackContext, "{\"result\":\"Session initialisation expected\"}");
+            return;
+        }
+        Operator operator = session.getStream().getCurrentOperator();
+        sendCallbackResult(callbackContext, operator);
     }
 
     private void requestDialog(final CallbackContext callbackContext) {
