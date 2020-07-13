@@ -85,9 +85,10 @@ public class WebimSDK extends CordovaPlugin {
                 int offset = Integer.parseInt(data.getString(1));
                 getMessagesHistory(limit, offset, callbackContext);
                 return true;
-            case "getCurrentOperator":
-                return true
 
+            case "getCurrentOperator":
+                getCurrentOperator(callbackContext);
+                return true
 
             case "typingMessage":
                 typingMessage(data.getString(0), callbackContext);
