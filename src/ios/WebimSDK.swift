@@ -180,7 +180,7 @@ import Photos
         do {
             try currentOperator = session?.getStream().getCurrentOperator()
         } catch { }
-        sendCallbackResult(callbackId: callbackId!, messageAs: dialogStateToJSON(op: currentOperator))
+        sendCallbackResult(callbackId: callbackId!, resultObject: currentOperator)
     }
 
     @objc(setChatRead:)
@@ -260,6 +260,11 @@ import Photos
 
     private func sendCallbackResult(callbackId: String, resultDictionary: Dictionary<AnyHashable, Any>) {
         let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: resultDictionary)
+        self.commandDelegate!.send(pluginResult, callbackId: callbackId)
+    }
+
+    private func sendCallbackResult(callbackId: String, resultObject: Operator) {
+        let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: dialogStateToJSON(op: resultObject))
         self.commandDelegate!.send(pluginResult, callbackId: callbackId)
     }
 
