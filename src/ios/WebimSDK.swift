@@ -175,7 +175,7 @@ import Photos
     @objc(getCurrentOperator:)
     func getCurrentOperator(_ command: CDVInvokedUrlCommand) {
         let callbackId = command.callbackId
-        let currentOperator = nil
+        var currentOperator:Operator? = nil
 
         do {
             try currentOperator = session?.getStream().getCurrentOperator()
