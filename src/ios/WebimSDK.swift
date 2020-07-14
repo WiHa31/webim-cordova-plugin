@@ -263,7 +263,7 @@ import Photos
         self.commandDelegate!.send(pluginResult, callbackId: callbackId)
     }
 
-    private func sendCallbackResult(callbackId: String, resultObject: Operator) {
+    private func sendCallbackResult(callbackId: String, resultObject: Operator?) {
         let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: dialogStateToJSON(op: resultObject))
         self.commandDelegate!.send(pluginResult, callbackId: callbackId)
     }
