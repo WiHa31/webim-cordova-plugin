@@ -175,12 +175,12 @@ import Photos
     @objc(getCurrentOperator:)
     func getCurrentOperator(_ command: CDVInvokedUrlCommand) {
         let callbackId = command.callbackId
-        let operator = nil
+        let currentOperator = nil
 
         do {
-            try operator = session?.getStream().getCurrentOperator()
+            try currentOperator = session?.getStream().getCurrentOperator()
         } catch { }
-        sendCallbackResult(callbackId: callbackId!, messageAs: dialogStateToJSON(op: operator))
+        sendCallbackResult(callbackId: callbackId!, messageAs: dialogStateToJSON(op: currentOperator))
     }
 
     @objc(setChatRead:)
